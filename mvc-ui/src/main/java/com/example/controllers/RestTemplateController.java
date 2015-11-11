@@ -5,6 +5,7 @@ import com.example.models.Instructor;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.hateoas.PagedResources;
 import org.springframework.hateoas.Resource;
@@ -29,6 +30,7 @@ import java.util.List;
 public class RestTemplateController {
 
     @Autowired
+    @LoadBalanced
     RestTemplate restTemplate;
 
     @RequestMapping(method = RequestMethod.GET)
