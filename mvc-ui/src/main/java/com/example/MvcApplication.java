@@ -3,10 +3,12 @@ package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
-import org.springframework.hateoas.config.EnableHypermediaSupport;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 @SpringCloudApplication
-//@EnableHypermediaSupport(type = EnableHypermediaSupport.HypermediaType.HAL)
+@EnableFeignClients
+@EnableCircuitBreaker
 public class MvcApplication {
 
     public static void main(String[] args) {

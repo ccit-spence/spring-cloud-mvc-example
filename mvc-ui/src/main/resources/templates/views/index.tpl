@@ -2,7 +2,11 @@ layout 'common/layout.tpl', true,
 pageTitle: title,
 mainContent: contents {
     h1 'Concept'
-    p 'Nothing but good old Spring MVC for rendering content. No AngularJS, ReactJS etc...  Just plain old Spring MVC Controllers rendering a view.'
-    p 'The links above show examples of the issue.  RestTemplate is the only one working at the moment.'
-    p 'I have not added anything with Hystrix yet. Not 100% sure how to add Hystrix.'
+    p 'A playground for implementing Clients within Spring Cloud. Current Services and Clients listed below.'
+    ul() {
+        li() yield 'Eureka - Port 8761'
+        li() yield 'Hystrix Dashboard - Port 9000'
+        li() yield 'Simple Rest Service - Port 8085'
+        li() yield 'Simple Spring MVC Application - Port 8080'
+    }
 }

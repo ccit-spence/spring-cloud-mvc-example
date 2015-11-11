@@ -10,6 +10,7 @@
 
     <modules>
         <module>eureka</module>
+        <module>hystrix-dashboard</module>
         <module>mvc-ui</module>
         <module>rest-api</module>
     </modules>
