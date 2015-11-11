@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.hateoas.PagedResources;
+import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.hal.Jackson2HalModule;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -20,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -44,9 +46,9 @@ public class RestTemplateController {
             url, HttpMethod.GET, null,
             new ParameterizedTypeReference<PagedResources<Instructor>>() {}, 0, 10);
 
-        PagedResources<Instructor> resources = responseEntity.getBody();
+        Collection<Instructor> resources = responseEntity.getBody().getContent();
 
-        List<Instructor> instructorsList = new ArrayList<>(resources.getContent());
+        List<Instructor> instructorsList = new ArrayList<>(resources);
 
         model.addAttribute("instructors", instructorsList);
 
@@ -62,9 +64,9 @@ public class RestTemplateController {
             customUrl, HttpMethod.GET, null,
             new ParameterizedTypeReference<PagedResources<Instructor>>() {}, 0, 10);
 
-        PagedResources<Instructor> resourcesCustom = responseEntityCustom.getBody();
+        Collection<Instructor> resourcesCustom = responseEntityCustom.getBody().getContent();
 
-        List<Instructor> customInstructorsList = new ArrayList<>(resourcesCustom.getContent());
+        List<Instructor> customInstructorsList = new ArrayList<>(resourcesCustom);
 
         model.addAttribute("customInstructors", customInstructorsList);
 

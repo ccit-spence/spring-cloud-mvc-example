@@ -7,7 +7,7 @@ mainContent: contents {
     h2 '@Autowired RestTemplate'
     ul() {
         instructors.each { instructor ->
-            li() yield "$customInstructor.firstName" + ' ' + "$customInstructor.lastName"
+            li() yield "$instructors.firstName" + ' ' + "$instructors.lastName"
         }
     }
     h2 'Custom RestTemplate'
